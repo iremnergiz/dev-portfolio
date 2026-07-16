@@ -1,0 +1,559 @@
+/* ==========================================================================
+   1. CSS DEĞİŞKENLERİ VE RENKLİ TASARIM SİSTEMİ
+   ========================================================================== */
+:root {
+    --background-raw: #0b0f19;       /* Derin uzay mavisi arka plan */
+    --background-card: rgba(21, 30, 50, 0.7); /* Şeffaf cam kart arka planı */
+    --border-color: rgba(255, 255, 255, 0.08); /* İnce şeffaf sınır çizgileri */
+    --text-primary: #f8fafc;         
+    --text-secondary: #94a3b8;       
+    
+    /* Canlı Renk Paleti */
+    --accent-cyan: #06b6d4;          /* Neon Turkuaz */
+    --accent-pink: #d946ef;          /* Neon Pembe */
+    --accent-purple: #8b5cf6;        /* Mistik Mor */
+    --accent-green: #10b981;         /* Canlı Yeşil */
+    
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ==========================================================================
+   2. TEMEL SIFIRLAMA VE GENEL AYARLAR
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background-raw);
+    /* Arka plana çok hafif renkli bir derinlik katmak için dairesel gradyan ekledik */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   3. NAVİGASYON (HEADER) - MODERN CAM (GLASSMORPHISM) EFEKTİ
+   ========================================================================== */
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(11, 15, 25, 0.75); 
+    backdrop-filter: blur(16px); 
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.logo-accent {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-cyan);
+}
+
+/* ==========================================================================
+   4. HERO SEKTÖRÜ (GİRİŞ EKRANI)
+   ========================================================================== */
+.hero-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem 4rem 2rem;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr; 
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+}
+
+.badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--accent-green);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -2px;
+    margin-bottom: 1.5rem;
+}
+
+/* Üç Renkli Akıcı Gradyan Metin */
+.gradient-text {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+.hero-lead {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 540px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Canlı Buton Tasarımları */
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    color: white;
+    padding: 0.8rem 1.8rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(139, 92, 246, 0.4);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--text-primary);
+    padding: 0.8rem 1.8rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-pink);
+    transform: translateY(-2px);
+}
+
+/* Sağ Terminal Alanı */
+.code-terminal-card {
+    background-color: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.terminal-header {
+    background-color: rgba(9, 13, 22, 0.8);
+    padding: 0.85rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot.red { background-color: #ff5f56; }
+.dot.yellow { background-color: #ffbd2e; }
+.dot.green { background-color: #27c93f; }
+
+.terminal-title {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-left: auto; 
+}
+
+.terminal-body {
+    padding: 1.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    overflow-x: auto; 
+}
+
+/* Kod Renklendirmeleri (Dracula Tema Esintili) */
+.code-keyword { color: #ff79c6; font-weight: bold; } 
+.code-class { color: #8be9fd; }                     
+.code-string { color: #f1fa8c; }                    
+.code-comment { color: #6272a4; font-style: italic; } 
+
+/* ==========================================================================
+   5. WEB GELİŞTİRME YAKLAŞIMI (RENKLİ SİMGE KARTLARI)
+   ========================================================================== */
+.web-capabilities-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.section-header {
+    margin-bottom: 3.5rem;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+}
+
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.capability-card {
+    background-color: var(--background-card);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+/* Kartların üzerine gelince her birine farklı bir parıltı rengi verdik */
+.capability-card:nth-child(1):hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
+}
+
+.capability-card:nth-child(2):hover {
+    border-color: var(--accent-purple);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+}
+
+.capability-card:nth-child(3):hover {
+    border-color: var(--accent-pink);
+    box-shadow: 0 10px 30px rgba(217, 70, 239, 0.15);
+}
+
+.cap-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.cap-number {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+}
+
+.capability-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.capability-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.capability-card code {
+    font-family: var(--font-mono);
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    color: var(--accent-cyan);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   6. KİŞİSEL İLGİ ALANLARI VE KARAKTER BÖLÜMÜ
+   ========================================================================== */
+.personal-interests-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 2rem 5rem 2rem;
+}
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.interest-box {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px dashed var(--border-color);
+    padding: 2rem;
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+
+.interest-box:hover {
+    border-color: var(--accent-purple);
+    background-color: rgba(139, 92, 246, 0.03);
+}
+
+.interest-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.interest-box h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.interest-box p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   7. PROJELER ALANI (RENKLİ GRID SİSTEMİ)
+   ========================================================================== */
+.projects-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.projects-layout-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.custom-project-card {
+    background-color: var(--background-card);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.custom-project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 15px 30px rgba(6, 182, 212, 0.1);
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    margin-bottom: 1.25rem;
+}
+
+.project-category {
+    color: var(--accent-cyan);
+    font-weight: 600;
+}
+
+.project-card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.project-card-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1.75rem;
+    line-height: 1.7;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-tags span {
+    background-color: rgba(6, 182, 212, 0.08);
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    border: 1px solid rgba(6, 182, 212, 0.15);
+}
+
+/* ==========================================================================
+   8. FOOTER TASARIMI
+   ========================================================================== */
+.main-footer {
+    border-top: 1px solid var(--border-color);
+    background-color: #060910;
+    padding: 5rem 2rem 2rem 2rem;
+}
+
+.footer-grid {
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.footer-info h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    max-width: 450px;
+}
+
+.footer-info p {
+    color: var(--text-secondary);
+    max-width: 450px;
+}
+
+.links-title {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+}
+
+.footer-links-list {
+    list-style: none;
+}
+
+.footer-links-list li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 500;
+}
+
+.footer-link:hover {
+    color: var(--accent-pink);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* ==========================================================================
+   9. RESPONSIVE TASARIM (MEDYA SORGULARI)
+   ========================================================================== */
+@media (max-width: 968px) {
+    .hero-grid {
+        grid-template-columns: 1fr; 
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .hero-lead {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-title {
+        font-size: 2.3rem;
+    }
+}
