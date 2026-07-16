@@ -118,18 +118,30 @@ body {
 .hero-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
     min-height: calc(100vh - var(--header-height));
     display: flex;
     align-items: center;
 }
 
 .hero-grid {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr; 
+    display: flex;
+    flex-direction: row;
     gap: 4rem;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
+}
+
+.hero-text-area {
+    flex: 1.2;
+    min-width: 300px;
+}
+
+.hero-visual-area {
+    flex: 0.8;
+    min-width: 300px;
+    display: block;
 }
 
 .badge-status {
@@ -147,11 +159,12 @@ body {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -2px;
+    line-height: 1.2;
+    letter-spacing: -1.5px;
     margin-bottom: 1.5rem;
+    color: var(--text-primary);
 }
 
 .gradient-text {
@@ -549,9 +562,14 @@ body {
     }
 
     .hero-grid {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         text-align: center;
         gap: 3rem;
+    }
+
+    .hero-text-area, .hero-visual-area {
+        width: 100%;
+        min-width: 100%;
     }
 
     .hero-actions {
