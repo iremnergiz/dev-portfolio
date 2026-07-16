@@ -1,6 +1,4 @@
-/* ==========================================================================
-   1. CSS DEĞİŞKENLERİ VE RENKLİ TASARIM SİSTEMİ
-   ========================================================================== */
+
 :root {
     --background-raw: #0b0f19;       /* Derin uzay mavisi arka plan */
     --background-card: rgba(21, 30, 50, 0.7); /* Şeffaf cam kart arka planı */
@@ -18,10 +16,8 @@
     --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* ==========================================================================
-   2. TEMEL SIFIRLAMA VE GENEL AYARLAR
-   ========================================================================== */
-* {
+
+ {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -44,9 +40,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ==========================================================================
-   3. NAVİGASYON (HEADER) - MODERN CAM (GLASSMORPHISM) EFEKTİ
-   ========================================================================== */
 .main-header {
     position: sticky;
     top: 0;
@@ -100,9 +93,6 @@ body {
     color: var(--accent-cyan);
 }
 
-/* ==========================================================================
-   4. HERO SEKTÖRÜ (GİRİŞ EKRANI)
-   ========================================================================== */
 .hero-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -142,7 +132,6 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* Üç Renkli Akıcı Gradyan Metin */
 .gradient-text {
     background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
     -webkit-background-clip: text;
@@ -162,7 +151,6 @@ body {
     gap: 1rem;
 }
 
-/* Canlı Buton Tasarımları */
 .btn-primary {
     background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
     color: white;
@@ -198,7 +186,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Sağ Terminal Alanı */
 .code-terminal-card {
     background-color: rgba(15, 23, 42, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -242,15 +229,11 @@ body {
     overflow-x: auto; 
 }
 
-/* Kod Renklendirmeleri (Dracula Tema Esintili) */
 .code-keyword { color: #ff79c6; font-weight: bold; } 
 .code-class { color: #8be9fd; }                     
 .code-string { color: #f1fa8c; }                    
 .code-comment { color: #6272a4; font-style: italic; } 
 
-/* ==========================================================================
-   5. WEB GELİŞTİRME YAKLAŞIMI (RENKLİ SİMGE KARTLARI)
-   ========================================================================== */
 .web-capabilities-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -287,7 +270,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Kartların üzerine gelince her birine farklı bir parıltı rengi verdik */
 .capability-card:nth-child(1):hover {
     border-color: var(--accent-cyan);
     box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
@@ -340,9 +322,6 @@ body {
     font-size: 0.85rem;
 }
 
-/* ==========================================================================
-   6. KİŞİSEL İLGİ ALANLARI VE KARAKTER BÖLÜMÜ
-   ========================================================================== */
 .personal-interests-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -386,9 +365,6 @@ body {
     line-height: 1.7;
 }
 
-/* ==========================================================================
-   7. PROJELER ALANI (RENKLİ GRID SİSTEMİ)
-   ========================================================================== */
 .projects-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -459,9 +435,6 @@ body {
     border: 1px solid rgba(6, 182, 212, 0.15);
 }
 
-/* ==========================================================================
-   8. FOOTER TASARIMI
-   ========================================================================== */
 .main-footer {
     border-top: 1px solid var(--border-color);
     background-color: #060910;
@@ -527,12 +500,11 @@ body {
     text-align: center;
 }
 
-/* ==========================================================================
-   9. RESPONSIVE TASARIM (MEDYA SORGULARI)
-   ========================================================================== */
+
+/* Tabletler ve Küçük Ekranlar İçin (968px ve altı) */
 @media (max-width: 968px) {
     .hero-grid {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr; /* Sağ ve sol blokları alt alta getir */
         text-align: center;
         gap: 3rem;
     }
@@ -544,16 +516,89 @@ body {
 
     .hero-actions {
         justify-content: center;
+        flex-wrap: wrap; /* Butonlar sığmazsa alt alta geçsin */
+    }
+
+    .code-terminal-card {
+        max-width: 500px;
+        margin: 0 auto; /* Terminali ortala */
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+    /* Header & Navigasyon Düzenlemesi */
     .header-container {
-        flex-direction: column;
+        flex-direction: column; /* Logoyu üstte, menüyü altta göster */
         gap: 1rem;
+        padding: 1rem;
+    }
+
+    .nav-menu {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
+    /* Hero Alanı Mobil Ölçekleme */
+    .hero-section {
+        padding: 3rem 1rem;
     }
 
     .hero-title {
-        font-size: 2.3rem;
+        font-size: 2.2rem;
+        letter-spacing: -1px;
+    }
+
+    .badge-status {
+        font-size: 0.75rem;
+    }
+
+    .hero-lead {
+        font-size: 0.95rem;
+    }
+
+    .web-capabilities-section,
+    .projects-section,
+    .personal-interests-section {
+        padding: 3rem 1rem;
+    }
+
+    .capabilities-grid,
+    .projects-layout-grid,
+    .interests-grid {
+        grid-template-columns: 1fr; 
+        gap: 1.25rem;
+    }
+
+    .capability-card,
+    .custom-project-card,
+    .interest-box {
+        padding: 1.5rem; 
+    }
+
+    .terminal-body {
+        padding: 1rem;
+        font-size: 0.75rem; 
+    }
+
+    .terminal-body pre {
+        white-space: pre-wrap; 
+        word-wrap: break-word;
+    }
+
+    /* Footer Mobil */
+    .footer-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .footer-info h3 {
+        font-size: 1.4rem;
     }
 }
