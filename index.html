@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geliştirici Portfolyosu | İrem Nergiz</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,33 +18,44 @@
             <a href="#" class="brand-logo">
                 <span class="logo-accent">İN</span>.ybs_dev<span class="logo-accent">()</span>
             </a>
-            <nav class="main-navigation">
-                <ul class="nav-menu">
-                    <li><a href="#hakkimda" class="nav-link">Hakkımda()</a></li>
-                    <li><a href="#yetkinlikler" class="nav-link">Yetkinlikler()</a></li>
-                    <li><a href="#projeler" class="nav-link">Projeler()</a></li>
-                    <li><a href="#iletisim" class="nav-link">İletişim()</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+            <header class="portfolio-header">
+    <div class="header-container">
+        <a href="#" class="logo-text">İN.ybs_dev()</a>
+        
+        <!-- Hamburger Menü Butonu (Sadece mobilde görünecek) -->
+        <button class="menu-toggle" aria-label="Menüyü Aç/Kapat">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- Menü Linkleri -->
+        <nav class="nav-menu">
+            <a href="#about" class="nav-link">Hakkımda()</a>
+            <a href="#skills" class="nav-link">Yetkinlikler()</a>
+            <a href="#projects" class="nav-link">Projeler()</a>
+            <a href="#contact" class="nav-link">İletişim()</a>
+        </nav>
+    </div>
+</header>
 
     <main class="content-wrapper">
 
+        <!-- HERO SECTION (Kişisel Bilgiler & C# Terminali) -->
         <section id="hakkimda" class="hero-section">
             <div class="hero-grid">
                 <div class="hero-text-area">
                     <span class="badge-status">🟢 Antalya | Akdeniz Üniversitesi </span>
                     <h1 class="hero-title">
                         Yönetim Bilişim Sistemleri <br>
-                        <span class="gradient-text">Mezunu & Geliştirici</span>
+                        <span class="gradient-text">Mezunu & Web Geliştirici</span>
                     </h1>
                     <p class="hero-lead">
-                        Merhaba, ben <strong>İrem Nergiz</strong>. Yönetim Bilişim Sistemleri (YBS) diplomamla iş analizi ve veri tabanı yönetimini; modern web teknolojileri (HTML5, CSS3, ES6+ JS) ve C# backend mimarileriyle birleştiriyorum. Sistem odaklı çözümler üretiyor ve temiz kod yazıyorum.
+                        Merhaba, ben <strong>Adınız Soyadınız</strong>. Yönetim Bilişim Sistemleri (YBS) diplomamla iş analizi ve veri tabanı yönetimini; modern web teknolojileri (HTML5, CSS3, ES6+ JS) ve C# backend mimarileriyle birleştiriyorum. Sistem odaklı çözümler üretmeyi ve temiz kod yazmayı ilke edindim.
                     </p>
                     <div class="hero-actions">
                         <a href="#projeler" class="btn-primary">Çalışmalarımı İncele</a>
-                        <a href="#iletisim" class="btn-secondary">İletişim</a>
+                        <a href="#iletisim" class="btn-secondary">Kahve Eşliğinde Sohbet</a>
                     </div>
                 </div>
                 
@@ -91,9 +102,10 @@
                         <span class="cap-number">01</span>
                         <h3>Semantik & Erişebilir HTML</h3>
                     </div>
-                    <p>Sadece div'ler kullanmak yerine, tarayıcıların ve ekran okuyucuların sayfayı kusursuz anlamlandırması için <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code> ve <code>&lt;nav&gt;</code> gibi modern etiket yapısını kurarım.</p>
+                    <p>Sadece div'ler kullanmak yerine, tarayıcıların ve ekran okuyucuların sayfayı kusursuz anlamlandırması için <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code> ve <code>&lt;nav&gt;</code> gibi modern semantik etiket yapısını kurarım.</p>
                 </div>
 
+                <!-- Kart 2: Modern CSS Layouts -->
                 <div class="capability-card">
                     <div class="cap-header">
                         <span class="cap-number">02</span>
@@ -102,6 +114,7 @@
                     <p>Eski float yöntemlerinden uzak, modern CSS Grid ve Flexbox düzen modelleri ile karmaşık ve ölçeklenebilir ızgara yapılarını sıfırdan, harici kütüphanelere (Bootstrap vb.) bağımlı kalmadan yazarım.</p>
                 </div>
 
+                <!-- Kart 3: Sürdürülebilir CSS (Variables) -->
                 <div class="capability-card">
                     <div class="cap-header">
                         <span class="cap-number">03</span>
@@ -112,6 +125,7 @@
             </div>
         </section>
 
+        <!-- KİŞİSEL İLGİ ALANLARI VE KARAKTER BÖLÜMÜ -->
         <section class="personal-interests-section">
             <div class="interests-grid">
                 <div class="interest-box">
@@ -193,6 +207,7 @@
 
     </main>
 
+    <!-- FOOTER & İLETİŞİM ALANI -->
     <footer id="iletisim" class="main-footer">
         <div class="footer-grid">
             <div class="footer-info">
@@ -202,16 +217,17 @@
             <div class="footer-links-area">
                 <span class="links-title">Dijital Adreslerim</span>
                 <ul class="footer-links-list">
-                    <li><a href="https://github.com/iremnergiz" target="_blank" class="footer-link">GitHub Profilim</a></li>
-                    <li><a href="https://www.linkedin.com/in/irem-nergiz-1b4583268/" target="_blank" class="footer-link">LinkedIn Profilim</a></li>
+                    <li><a href="https://github.com/iremnergiz" target="_blank" class="footer-link">GitHub Profile</a></li>
+                    <li><a href="https://www.linkedin.com/in/irem-nergiz-1b4583268/" target="_blank" class="footer-link">LinkedIn Profile</a></li>
                     <li><a href="mailto:iremnergiz4@gmail.com" class="footer-link">E-Posta Gönder</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 İrem Nergiz. Tüm hakları saklıdır. Bu site, bir web geliştiricinin elinden çıktığını kanıtlamak üzere saf HTML ve CSS ile sıfırdan kodlanmıştır.</p>
+            <p>&copy; 2026 Adınız Soyadınız. Tüm hakları saklıdır. Bu site, bir web geliştiricinin elinden çıktığını kanıtlamak üzere saf HTML ve CSS ile sıfırdan kodlanmıştır.</p>
         </div>
     </footer>
-
+<script src="script.js"></script>
+</body>
 </body>
 </html>
