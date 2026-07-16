@@ -1,14 +1,11 @@
-
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
-
 
 menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
     navMenu.classList.toggle('active');
 });
-
 
 navLinks.forEach(link => {
     link.addEventListener('click', () => {

@@ -63,6 +63,7 @@ body {
     font-weight: 700;
     color: var(--text-primary);
     text-decoration: none;
+    letter-spacing: -0.5px;
 }
 
 .logo-accent {
@@ -126,22 +127,20 @@ body {
 
 .hero-grid {
     display: flex;
-    flex-direction: row;
-    gap: 4rem;
+    flex-wrap: wrap;
+    gap: 2rem;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
 }
 
 .hero-text-area {
-    flex: 1.2;
-    min-width: 300px;
+    flex: 1;
+    min-width: 320px;
 }
 
 .hero-visual-area {
-    flex: 0.8;
-    min-width: 300px;
-    display: block;
+    flex: 1;
+    min-width: 320px;
 }
 
 .badge-status {
@@ -159,12 +158,11 @@ body {
 }
 
 .hero-title {
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-weight: 800;
     line-height: 1.2;
-    letter-spacing: -1.5px;
+    letter-spacing: -1px;
     margin-bottom: 1.5rem;
-    color: var(--text-primary);
 }
 
 .gradient-text {
@@ -290,7 +288,7 @@ body {
 
 .capabilities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -345,47 +343,6 @@ body {
     line-height: 1.7;
 }
 
-.personal-interests-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 2rem 5rem 2rem;
-}
-
-.interests-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-.interest-box {
-    background-color: rgba(255, 255, 255, 0.02);
-    border: 1px dashed var(--border-color);
-    padding: 2rem;
-    border-radius: 12px;
-    transition: all 0.3s;
-}
-
-.interest-box:hover {
-    border-color: var(--accent-purple);
-    background-color: rgba(139, 92, 246, 0.03);
-}
-
-.interest-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 1rem;
-}
-
-.interest-box h4 {
-    font-size: 1.15rem;
-    margin-bottom: 0.5rem;
-}
-
-.interest-box p {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-}
-
 .projects-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -395,7 +352,7 @@ body {
 
 .projects-layout-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
@@ -564,7 +521,7 @@ body {
     .hero-grid {
         flex-direction: column;
         text-align: center;
-        gap: 3rem;
+        gap: 2rem;
     }
 
     .hero-text-area, .hero-visual-area {
@@ -574,14 +531,9 @@ body {
 
     .hero-actions {
         justify-content: center;
-        flex-wrap: wrap;
     }
 
     .hero-title {
         font-size: 2.2rem;
-    }
-
-    .capabilities-grid, .projects-layout-grid, .interests-grid {
-        grid-template-columns: 1fr;
     }
 }
